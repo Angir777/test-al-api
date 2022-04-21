@@ -47,6 +47,18 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "fresh-db": [
+            "composer dump-autoload",
+            "@php artisan migrate:fresh --seed",
+            "@php artisan passport:install"
+        ],
+        "fake-db": [
+            "@php artisan db:seed --class=FakerDataSeeder"
+        ],
+        "full-db": [
+            "@fresh-db",
+            "@fake-db"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
