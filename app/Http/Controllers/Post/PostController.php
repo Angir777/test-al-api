@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Post;
 
+use App\Http\Controllers\Controller;
+use App\Models\Post\Post;
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $posts = Post::all();
         
-        return response()->json($products);
+        return response()->json($posts);
     }
 
     /**

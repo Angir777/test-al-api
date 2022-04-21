@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\Post\PostSeeder;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class FakerDataSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -13,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        $this->call(PostSeeder::class);
     }
 }
