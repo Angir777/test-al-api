@@ -44,7 +44,7 @@ class AuthController extends Controller
         ]);
 
         /**
-         * @var user $user
+         * @var User $user
          */
         $user = Auth::user();
         if ($request->allDevice) {
