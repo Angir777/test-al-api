@@ -14,6 +14,7 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
+        // generate faker posts
         Post::factory()->count(6)->create();
     }
 }
