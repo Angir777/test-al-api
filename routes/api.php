@@ -27,7 +27,8 @@ Route::get('users', function(){
 });
 
 Route::group(['namespace'=>'Api\Auth'], function(){
-    Route::post('/login',[AuthController::class,'login']);
+    Route::post('/login', [AuthController::class,'login']);
+    Route::post('/logout', [AuthController::class,'logout'])->middleware('auth:api');
 });
 
 Route::get('/posts',[PostController::class,'index']);

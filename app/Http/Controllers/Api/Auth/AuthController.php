@@ -37,4 +37,25 @@ class AuthController extends Controller
             'token_expires_at' => $token->token->expires_at,
         ], 200);
     }
+
+    public function logout(Request $request){
+        $this->validate($request, [
+            'allDevice' => 'required|boolean'
+        ]);
+
+        /**
+         * @var user $user
+         */
+        $user = Auth::user();
+        if ($request->allDevice) {
+            $user->tokens->each(function ($token) {
+                $token->delete();
+            });
+            return response(['message' => 'Logged out from all device !!'], 200);
+        }
+
+        $userToken = $user->token();
+        $userToken->delete();
+        return response(['message' => 'Logged Successful !!'], 200);
+    }
 }
