@@ -51,6 +51,7 @@ class AuthController extends Controller
             $user->tokens->each(function ($token) {
                 $token->delete();
             });
+            // UWAGA! Jak to wylogowywuje ze wszystkich urządzeń? To chyba nie działa.
             return response(['message' => 'Logged out from all device !!'], 200);
         }
 

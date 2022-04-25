@@ -37,13 +37,7 @@ Route::put('/posts/{id}',[PostController::class,'update']);
 Route::delete('/posts/{id}',[PostController::class,'destroy']);
 Route::get('/posts/{id}',[PostController::class,'show']);
 
-
-
-
-
-
-
-
+// Po @ nie działa
 // Route::group(['namespace'=>'Api\Auth'], function(){
 //     Route::post('/login', 'AuthController@login');
 //     Route::post('/logout', 'AuthenticationController@logout')->middleware('auth:api');
