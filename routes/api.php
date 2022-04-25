@@ -45,3 +45,10 @@ Route::get('/posts/{id}',[PostController::class,'show']);
 //     Route::post('/forgot', 'ForgotPasswordController@forgot');
 //     Route::post('/reset', 'ForgotPasswordController@reset');
 // });
+
+// Route::group([
+//     'prefix' => 'products',
+//     'middleware' => 'auth:api'
+// ], function () {
+//     Route::get('/all', [ProductController::class, 'getAll'])->middleware(['products:PRODUCT_ACCESS']);
+// });
