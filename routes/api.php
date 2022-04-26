@@ -31,11 +31,11 @@ Route::group(['namespace'=>'Api\Auth'], function(){
     Route::post('/logout', [AuthController::class,'logout'])->middleware('auth:api');
 });
 
-Route::get('/posts',[PostController::class,'index']);
-Route::post('/posts',[PostController::class,'store']);
-Route::put('/posts/{id}',[PostController::class,'update']);
-Route::delete('/posts/{id}',[PostController::class,'destroy']);
-Route::get('/posts/{id}',[PostController::class,'show']);
+Route::get('/posts',[PostController::class,'index'])->middleware('auth:api');
+Route::post('/posts',[PostController::class,'store'])->middleware('auth:api');
+Route::put('/posts/{id}',[PostController::class,'update'])->middleware('auth:api');
+Route::delete('/posts/{id}',[PostController::class,'destroy'])->middleware('auth:api');
+Route::get('/posts/{id}',[PostController::class,'show'])->middleware('auth:api');
 
 // Po @ nie działa
 // Route::group(['namespace'=>'Api\Auth'], function(){

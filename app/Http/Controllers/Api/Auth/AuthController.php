@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function login(Request $request){
-        $this->validate($request, [
+    public function login(Request $request) {
+        $login = $this->validate($request, [
             'email' => 'required|max:255',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
-        $login = $request->only('email', 'password');
+        // $login = $request->only('email', 'password');
 
         if(!Auth::attempt($login)){
             return response(['message' => 'Invalid login credential.'], 401);
@@ -38,7 +38,7 @@ class AuthController extends Controller
         ], 200);
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request) {
         $this->validate($request, [
             'allDevice' => 'required|boolean'
         ]);
